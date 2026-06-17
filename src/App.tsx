@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Box } from "@chakra-ui/react";
 import "./index.css";
 import './App.css'
 
