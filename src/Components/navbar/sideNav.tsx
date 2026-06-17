@@ -9,7 +9,7 @@ function SideNav() {
         w="250px"
         bg="bg.surface"
         borderRightWidth="1px"
-        borderColor="border.subtle"
+        borderColor="#F0F0F0"
         p={4}
         minH="100vh"
         >

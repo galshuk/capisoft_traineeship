@@ -19,7 +19,6 @@ const config = defineConfig({
                 xs: { value: "12px" },
                 sm: {value: "14px"},
                 md: {value: "16px"},
-                ml: {value: "18px"},
                 lg: {value: "20px"},
                 xl: {value: "24px"},
             },
