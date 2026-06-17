@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-export default Dashboard;
 import { useAuth } from '../Utility/AuthContext.tsx';
+import { Flex, Box, Heading, Button } from "@chakra-ui/react";
+import SideNav from "../navbar/sideNav.tsx"
 
 function Dashboard() {
     const { logout } = useAuth();
@@ -10,16 +11,15 @@ function Dashboard() {
         }
 
     return (
-        <div>
-            <h1> Welcome to the Dashboard </h1>
+        <Flex>
+            <SideNav />
+            <Box flex="1" p={6}>
+                <Heading size="xl" mb={4}>Dashboard</Heading>
+                <Button onClick={handleLogOut} bg="#EAFBEB" color="black">Log out</Button>
+            </Box>
+        </Flex>
 
-            <nav>
-                <Link to="/">Home</Link> <br />
-                <Link to="/login">Login</Link> <br />
-                <Link to="/userpage">User Page</Link> <br />
-            </nav>
-
-            <input onClick = {handleLogOut} type="button" id="log_out" value="Log out" />
-        </div>
     );
 }
+
+export default Dashboard;

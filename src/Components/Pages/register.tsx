@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from '../Utility/AuthContext.tsx';
 import { Link as RouterLink } from "react-router-dom";
-import { Box, Heading, Text, Input, Button, Stack, Link, Flex } from "@chakra-ui/react";
+import { Box, Heading, Text, Input, Button, Stack, Flex } from "@chakra-ui/react";
 import { registerSchema } from "../Utility/inputValidation.tsx"
 
 function Register() {
