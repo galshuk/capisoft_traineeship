@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import { Provider } from "@/components/ui/provider"
 import './index.css'
 // import App from './App.tsx'
-import Dashboard from "./Components/Pages/Dashboard.tsx"
+import Dashboard from "./Components/Pages/Dashboard/Dashboard.tsx"
 import Login from './Components/Pages/login.tsx';
 import UserPage from './Components/Pages/UserPage.tsx';
 import Register from "./Components/Pages/register.tsx";
