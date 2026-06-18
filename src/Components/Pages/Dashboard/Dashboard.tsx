@@ -4,6 +4,7 @@ import { LuCoins, LuFileText, LuChevronDown } from "react-icons/lu";
 import SideNav from "../../navbar/sideNav.tsx"
 import Header from "../../header/header.tsx";
 import UserOverViewChart from "./userBarChart.tsx"
+import RevenueOverviewChart from "./revenueLineChart.tsx"
 import StatCard from "../../Reusable elements/statCards.tsx";
 
 
@@ -26,7 +27,7 @@ function Dashboard() {
                     </Flex>
 
                     {/* Data portion */}
-                    <Flex justify="space-between" align="center" wrap="wrap">
+                    <Flex justify="space-between" align="center" wrap="wrap" p={4} gap={4}>
                         {/* User overview */}
                         <Box bg="bg.surface" p={6} borderRadius="xl" boxShadow="sm" flex="1">
                             <Flex justify="space-between" align="flex-start" mb={4}>
@@ -60,7 +61,7 @@ function Dashboard() {
                         <Box bg="bg.surface" p={6} borderRadius="xl" boxShadow="sm" flex="1">
                             <Flex justify="space-between" align="flex-start" mb={4}>
                                 <Box textAlign="left" font="Inter">
-                                <Heading size="md">Reveniew Overview</Heading>
+                                <Heading size="md">Revenue Overview</Heading>
                                 <Text color="text.muted" fontSize="sm">+25% compared to last 30 days</Text>
                                 </Box>
 
@@ -69,6 +70,7 @@ function Dashboard() {
                                 </Button>
                             </Flex>
 
+                            <RevenueOverviewChart />
 
                         </Box>
                     </Flex>
