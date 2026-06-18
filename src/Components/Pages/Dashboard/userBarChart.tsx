@@ -1,5 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-import CustomTooltip from "@/Components/Utility/customTooltip";
+import CustomTooltip from "@/Components/Reusable elements/customTooltip";
 import { useState } from "react";
 
 function UserOverviewChart() {
