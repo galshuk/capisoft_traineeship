@@ -13,7 +13,10 @@ function ProductList({ products }: { products: any[] }) {
             <Text fontSize="xs" color="text.muted">{product.link}</Text>
           </Box>
 
-          <Badge bg="red.50" color="red.500" borderRadius="md">{product.status}</Badge>
+          <Badge
+            bg={product.status === "Removed" ? "#FEE8EA" : "#FFEFE7"}
+            color={product.status === "Removed" ? "#DA3F51" : "#FF9600"}
+            borderRadius="md">{product.status}</Badge>
 
           <Flex gap={2}>
             <Button size="sm" bg="black" color="white">Source</Button>

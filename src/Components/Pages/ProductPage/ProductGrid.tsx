@@ -10,7 +10,7 @@ function ProductGrid({ products }: { products: any[] }) {
           {/* image with badge overlaid */}
           <Box position="relative">
             <Image src={product.image} alt="" h="160px" w="100%" objectFit="cover" bg="gray.100" />
-            <Badge position="absolute" top={2} left={2} bg="blackAlpha.600" color="white" borderRadius="md">
+            <Badge position="absolute" top={2} left={2} bg="#85858533" color="white" borderRadius="md">
               {product.status}
             </Badge>
           </Box>
@@ -20,7 +20,7 @@ function ProductGrid({ products }: { products: any[] }) {
             <Text fontWeight="medium" color="black" textAlign="left">{product.title}</Text>
             <Text fontSize="xs" color="text.muted" mb={3} textAlign="left">{product.link}</Text>
             <Flex gap={2} justify="center">
-              <Button size="sm" bg="#D4F8D4" color="black">View Details</Button>
+              <Button size="sm" bg="#D4F8D4" color="#404040">View Details</Button>
               <Button size="sm" bg="black" color="white">Source</Button>
             </Flex>
           </Box>
