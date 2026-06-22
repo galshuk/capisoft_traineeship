@@ -1,8 +1,11 @@
-import { Avatar, Box, Flex, Button, Text} from "@chakra-ui/react";
+import { Avatar, Box, Flex, Button, Text, IconButton} from "@chakra-ui/react";
 import { MenuRoot, MenuTrigger, MenuContent, MenuItem } from "../../components/ui/menu";
-import { LuChevronDown } from "react-icons/lu"
+import {DrawerRoot, DrawerTrigger, DrawerBackdrop, DrawerContent, DrawerBody, DrawerCloseTrigger,
+} from "../../components/ui/drawer";
+import { LuChevronDown, LuMenu } from "react-icons/lu"
 import { useAuth } from '../Utility/AuthContext.tsx';
 import janePhoto from "../../../src/assets/janePhoto.png"
+import NavLinks from "../navbar/navItems.tsx";
 
 function Header() {
     const { user, logout } = useAuth();
@@ -11,7 +14,7 @@ function Header() {
         <Flex
             as="header"
             align="center"
-            justify="flex-end"
+            justify="space-between"
             px={6}
             py={4}
             borderBottomWidth="1px"
@@ -20,6 +23,26 @@ function Header() {
             w="100%"
             h="72px"
         >
+            {/* Drawer - only on mobile */}
+             <Box display={{ base: "block", md: "none" }}>
+                <DrawerRoot placement="start">
+                <DrawerTrigger asChild>
+                    <IconButton aria-label="Open menu" variant="ghost">
+                    <LuMenu />
+                    </IconButton>
+                </DrawerTrigger>
+                <DrawerBackdrop />
+                <DrawerContent>
+                    <DrawerCloseTrigger />
+                    <DrawerBody>
+                    <NavLinks />
+                    </DrawerBody>
+                </DrawerContent>
+                </DrawerRoot>
+            </Box>
+
+            {/* spacer so user menu stays right when hamburger is hidden on desktop */}
+            <Box display={{ base: "none", md: "block" }} />
         <MenuRoot>
            <MenuTrigger asChild>
             <Button variant="ghost" h="auto" py={2}>
