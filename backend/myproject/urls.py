@@ -25,13 +25,13 @@ router.register(r"users", UserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('api.urls')),
+    path('api/', include(router.urls)),
 
 ]
 
 
 # Method	Endpoint	    Action
-# GET       /model/	        List all
+# GET9all)  /model/	        List all
 # POST	    /model/ 	    Create a new
 # GET	    /model/{id}/	Retrieve a specific object
 # PUT	    /model/{id}/	Update an object completely
