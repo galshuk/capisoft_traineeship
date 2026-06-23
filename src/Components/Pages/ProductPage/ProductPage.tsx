@@ -17,7 +17,7 @@ function ProductPage() {
     return (
         <Flex>
             <SideNav />
-            <Box flex = "1">
+            <Box flex="1" minW={0}>
                 <Header />
                 <Flex flex="1" p={6} gap={2} direction="column">
                     {/* Header portions */}

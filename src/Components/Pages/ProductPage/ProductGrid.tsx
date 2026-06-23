@@ -16,12 +16,12 @@ function ProductGrid({ products }: { products: any[] }) {
           </Box>
 
           {/* text + actions */}
-          <Box p={4}>
+          <Box p={2}>
             <Text fontWeight="medium" color="black" textAlign="left">{product.title}</Text>
-            <Text fontSize="xs" color="text.muted" mb={3} textAlign="left">{product.link}</Text>
-            <Flex gap={2} justify="center">
-              <Button size="sm" bg="#D4F8D4" color="#404040">View Details</Button>
-              <Button size="sm" bg="black" color="white">Source</Button>
+            <Text fontSize="xs" color="text.muted" mb={2} textAlign="left">{product.link}</Text>
+            <Flex gap={1} justify="space-between">
+              <Button size="xs" bg="#D4F8D4" color="#404040">View Details</Button>
+              <Button size="xs" bg="black" color="white">Source</Button>
             </Flex>
           </Box>
         </Box>
