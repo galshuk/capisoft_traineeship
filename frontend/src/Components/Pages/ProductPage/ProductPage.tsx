@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { SimpleGrid, Flex, Box, Heading, Button, Text, Image} from "@chakra-ui/react";
+import { Flex, Box, Heading, Button} from "@chakra-ui/react";
 import SideNav from "../../navbar/sideNav.tsx"
 import Header from "../../header/header.tsx";
 import ProductList from "./ProductList.tsx"
@@ -26,7 +26,7 @@ function ProductPage() {
                         <Flex gap={2}>
                         <Button
                             onClick={() => setView("grid")}
-                            bg={view === "list" ? "#D4F8D4" : "white"}
+                            bg={view === "list" ? "white" : "#D4F8D4"}
                             color="black"
                             borderWidth="1px"
                             borderColor="border.subtle"
@@ -35,7 +35,7 @@ function ProductPage() {
                         </Button>
                         <Button
                             onClick={() => setView("list")}
-                            bg={view === "grid" ? "#D4F8D4" : "white"}
+                            bg={view === "grid" ? "white" : "#D4F8D4"}
                             color="black"
                             borderWidth="1px"
                             borderColor="border.subtle"
