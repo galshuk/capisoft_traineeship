@@ -9,7 +9,7 @@ function TopAdmin() {
         <Link fontSize="sm" fontWeight="medium">View all</Link>
       </Flex>
 
-      <Flex align="center" gap={6}>
+      <Flex direction="column" align="center" gap={6}>
         {/* profile */}
         <Box textAlign="center" flexShrink={0}>
           <Image src={adminPhoto} alt="" boxSize="80px" borderRadius="full" objectFit="cover" />
