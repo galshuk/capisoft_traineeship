@@ -59,7 +59,7 @@ function Dashboard() {
                                 </Box>
                             </Flex>
                         </Box>
-                        <SimpleGrid columns={2} gap={4}>
+                        <SimpleGrid columns={{ base: 1, sm: 2}}  gap={4}>
                             <StatCard
                                 icon={<Image src={coinsStacked} boxSize={4} />}
                                 value="€500.00"
@@ -88,7 +88,7 @@ function Dashboard() {
                     </SimpleGrid>
 
                     {/* Graph portion */}
-                    <SimpleGrid columns={{ base: 1, lg: 2 }} gap={4}>
+                    <SimpleGrid columns={{ base: 1, sm:2, lg: 2 }} gap={4}>
                         {/* User overview */}
                         <Box bg="bg.surface" p={6} borderRadius="xl" boxShadow="sm" flex="1">
                             <Flex justify="space-between" align="flex-start" mb={4}>
@@ -102,7 +102,7 @@ function Dashboard() {
                                 </Button>
                             </Flex>
                             <UserOverViewChart />
-                            <Flex gap={4} mt={4}>
+                            <SimpleGrid columns={{ base: 1, lg: 2 }} gap={4} mt={4}>
                                 <StatCard
                                     icon={<LuCoins size={20} />}
                                     value="€200.00"
@@ -115,7 +115,7 @@ function Dashboard() {
                                     percentage="+25%"
                                     label="Closed Offers"
                                 />
-                            </Flex>
+                            </SimpleGrid>
                         </Box>
 
                         {/* Reveniew overview */}

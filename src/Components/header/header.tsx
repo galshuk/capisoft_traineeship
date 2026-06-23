@@ -8,7 +8,7 @@ import janePhoto from "../../../src/assets/janePhoto.png"
 import NavLinks from "../navbar/navItems.tsx";
 
 function Header() {
-    const { user, logout } = useAuth();
+    const { logout } = useAuth();
 
     return (
         <Flex
@@ -41,32 +41,33 @@ function Header() {
                 </DrawerRoot>
             </Box>
 
-            {/* spacer so user menu stays right when hamburger is hidden on desktop */}
+            {/* spacer so user menu stays right when hidden on desktop */}
             <Box display={{ base: "none", md: "block" }} />
-        <MenuRoot>
-           <MenuTrigger asChild>
-            <Button variant="ghost" h="auto" py={2}>
-                <Flex align="center" gap={3}>
-                <Avatar.Root size="sm">
-                    <Avatar.Fallback name="Jane Cooper" />
-                    <Avatar.Image src={janePhoto} />
-                </Avatar.Root>
 
-                <Box textAlign="left">
-                    <Text fontWeight="semibold" fontSize="sm">Jane Cooper</Text>
-                    <Text fontSize="xs" color="text.muted">janecooper@gmail.com</Text>
-                </Box>
+            <MenuRoot>
+            <MenuTrigger asChild>
+                <Button variant="ghost" h="auto" py={2}>
+                    <Flex align="center" gap={3}>
+                    <Avatar.Root size="sm">
+                        <Avatar.Fallback name="Jane Cooper" />
+                        <Avatar.Image src={janePhoto} />
+                    </Avatar.Root>
 
-                <LuChevronDown />
-                </Flex>
-            </Button>
-            </MenuTrigger>
-            <MenuContent>
-                <MenuItem value="logout" onClick={logout}>
-                    Log out
-                </MenuItem>
-            </MenuContent>
-        </MenuRoot>
+                    <Box textAlign="left">
+                        <Text fontWeight="semibold" fontSize="sm">Jane Cooper</Text>
+                        <Text fontSize="xs" color="text.muted">janecooper@gmail.com</Text>
+                    </Box>
+
+                    <LuChevronDown />
+                    </Flex>
+                </Button>
+                </MenuTrigger>
+                <MenuContent>
+                    <MenuItem value="logout" onClick={logout}>
+                        Log out
+                    </MenuItem>
+                </MenuContent>
+            </MenuRoot>
         </Flex>
     );
 }

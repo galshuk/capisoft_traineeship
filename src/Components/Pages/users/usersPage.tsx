@@ -26,7 +26,7 @@ function UsersPage() {
     return (
         <Flex>
             <SideNav />
-            <Box flex = "1">
+            <Box flex = "1" minW={0}>
                 <Header />
                 <Flex flex="1" p={6} gap={4} direction="column">
                     {/* Header portions */}
