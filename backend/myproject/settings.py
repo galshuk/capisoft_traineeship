@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -129,3 +130,10 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.AllowAny",
     ],
 }
+
+FIREBASE_PROJECT_ID = os.environ.get("FIREBASE_PROJECT_ID")
+FIREBASE_PRIVATE_KEY_ID = os.environ.get("FIREBASE_PRIVATE_KEY_ID")
+FIREBASE_PRIVATE_KEY = os.environ.get("FIREBASE_PRIVATE_KEY")
+FIREBASE_CLIENT_EMAIL = os.environ.get("FIREBASE_CLIENT_EMAIL")
+FIREBASE_CLIENT_ID = os.environ.get("FIREBASE_CLIENT_ID")
+FIREBASE_CLIENT_CERT = os.environ.get("FIREBASE_CLIENT_CERT")

@@ -9,7 +9,7 @@ from django.db import models
 
 class Client(models.Model):
     class Status(models.TextChoices):
-        NO_STATUS = "no_status", "No status"  # whats stored in the DB | readable label
+        NO_STATUS = "no_status", "No status"  # stored in the DB|readable label
         IN_NEGOTIATION = "in_negotiation", "In Negotiation"
         CLOSED_WON = "closed_won", "Closed - Won"
         CLOSED_LOST = "closed_lost", "Closed - Lost"

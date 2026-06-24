@@ -4,9 +4,10 @@ from .serializers import ClientSerializer, UserSerializer
 
 # Create your views here.
 
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()  # what data the view operates on
-    serializer_class = UserSerializer  # what serializer to use for converting to JSON
+    serializer_class = UserSerializer  # what serializer to use for JSON
 
 
 class ClientViewSet(viewsets.ModelViewSet):

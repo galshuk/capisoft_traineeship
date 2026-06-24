@@ -28,3 +28,5 @@ venv/
 db.sqlite3
 __pycache__/
 *.pyc
+backend/serviceAccountKey.json
+backend/serviceAccountKey.json
