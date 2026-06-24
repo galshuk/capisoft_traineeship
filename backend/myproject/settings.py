@@ -12,10 +12,13 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# reads variables from a .env file and sets them in os.environ
+load_dotenv(BASE_DIR / ".env")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -131,8 +134,12 @@ REST_FRAMEWORK = {
     ],
 }
 
+
+# reads variables from a .env file and sets them in os.environ
+load_dotenv(BASE_DIR / ".env")
+
 FIREBASE_PROJECT_ID = os.environ.get("FIREBASE_PROJECT_ID")
-FIREBASE_PRIVATE_KEY_ID = os.environ.get("FIREBASE_PRIVATE_KEY_ID")
+FIREBASE_PRIVATE_KEY_ID = os.environ.get("FIREBASE_PRIVATE_KEY_ID").replace("\\n", "\n")
 FIREBASE_PRIVATE_KEY = os.environ.get("FIREBASE_PRIVATE_KEY")
 FIREBASE_CLIENT_EMAIL = os.environ.get("FIREBASE_CLIENT_EMAIL")
 FIREBASE_CLIENT_ID = os.environ.get("FIREBASE_CLIENT_ID")

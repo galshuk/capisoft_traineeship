@@ -1,11 +1,9 @@
 import firebase_admin
-from user.models import User
+from api.models import User
 from firebase_admin import auth
-from firebase_admin import credentials, exceptions
+from firebase_admin import credentials
 from rest_framework import authentication
-
 from .exceptions import *
-
 from django.conf import settings
 
 
@@ -22,17 +20,19 @@ cred = credentials.Certificate({
   "client_x509_cert_url": settings.FIREBASE_CLIENT_CERT,
   "universe_domain": "googleapis.com"
 })
-default_app = firebase_admin.initialize_app(cred) # runs once and sets up the connection
+default_app = firebase_admin.initialize_app(cred)  # sets up connection
 
-# ---- Auth class ----
+
+# ---- Auth classes ----
 class FirebaseAuthentication(authentication.BaseAuthentication):
     def authenticate(self, request):
-        auth_header = request.META.get("HTTP_AUTHORIZATION")
+        auth_header = request.META.get("HTTP_AUTHORIZATION")  # Header extraction
         if not auth_header:
             raise NoAuthToken("No auth token provided")
 
         id_token = auth_header.split(" ").pop()
         return handle_auth(id_token,throw_error=True)
+
 
 class FirebaseOptionalAuthentication(authentication.BaseAuthentication):
     def authenticate(self, request):
@@ -44,13 +44,18 @@ class FirebaseOptionalAuthentication(authentication.BaseAuthentication):
         id_token = auth_header.split(" ").pop()
         return handle_auth(id_token)
 
+
+# ---- Returns the backend's auth token ----
 def authenticate_token(id_token):
     return handle_auth(id_token)
 
 
+# Assures that the users is using a valid firebase token
+# Finds the relevant user based on the uid
 def handle_auth(id_token, throw_error=False):
     decoded_token = None
     try:
+        # checks that the token used by the user is authentic - using firebase's public key (חתימה דיגיטלית!)
         decoded_token = auth.verify_id_token(id_token)
     except Exception as err:
         if throw_error:
@@ -62,7 +67,7 @@ def handle_auth(id_token, throw_error=False):
         return None
 
     try:
-        uid = decoded_token.get("uid")
+        uid = decoded_token.get("uid") # user's firebase uid
     except Exception as err:
         if throw_error: raise FirebaseError()
         else: return None

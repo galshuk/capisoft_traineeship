@@ -30,3 +30,4 @@ __pycache__/
 *.pyc
 backend/serviceAccountKey.json
 backend/serviceAccountKey.json
+backend/.env
