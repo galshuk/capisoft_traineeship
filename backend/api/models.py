@@ -52,6 +52,7 @@ class User(models.Model):
     def __str__(self):
         return self.name
 
+
 class TodoList(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=255)
@@ -62,7 +63,7 @@ class TodoList(models.Model):
         blank = True,
         related_name = "todo_lists",
     )
-    asignee = models.ForeignKey(
+    assignee = models.ForeignKey(
         "User",
         on_delete = models.SET_NULL,
         null = True,
@@ -80,12 +81,19 @@ class TodoItem(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=255)
     is_done = models.BooleanField(default=False)
-    parentList = models.ForeignKey(
+    parent_list = models.ForeignKey(
         "TodoList",
         on_delete = models.CASCADE,
         null = True,
         blank = True,
         related_name = "todo_item",
+    )
+    assignee = models.ForeignKey(
+        "User",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="assigned_items",
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

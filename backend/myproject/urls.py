@@ -19,19 +19,14 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from api.views import ClientViewSet, UserViewSet
 
-router = DefaultRouter()
-router.register(r"clients", ClientViewSet)   # registers ClientViewSet under path "clients"
-router.register(r"users", UserViewSet)
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
-
+    path('api/', include('api.urls')),
 ]
 
 
 # Method	Endpoint	    Action
-# GET (all)  /model/	        List all
+# GETall)  /model/	        List all
 # POST	    /model/ 	    Create a new
 # GET	    /model/{id}/	Retrieve a specific object
 # PUT	    /model/{id}/	Update an object completely
